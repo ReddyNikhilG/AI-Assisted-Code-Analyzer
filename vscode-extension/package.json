@@ -1,0 +1,61 @@
+{
+    "name": "codesense-ai",
+    "displayName": "CodeSense AI — Live Code Analyzer",
+    "description": "Real-time AI-assisted code analysis: security risks, intent prediction, complexity metrics, and architecture insights.",
+    "version": "1.0.0",
+    "publisher": "codesense",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Linters",
+        "Programming Languages",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:python"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "codesense.analyzeFile",
+                "title": "CodeSense: Analyze Current File"
+            },
+            {
+                "command": "codesense.showDashboard",
+                "title": "CodeSense: Open Dashboard"
+            }
+        ],
+        "configuration": {
+            "title": "CodeSense AI",
+            "properties": {
+                "codesense.backendUrl": {
+                    "type": "string",
+                    "default": "http://127.0.0.1:8000",
+                    "description": "URL of the CodeSense AI backend server."
+                },
+                "codesense.analyzeOnSave": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Automatically analyze the file when saved."
+                },
+                "codesense.analyzeOnType": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Analyze while typing (with debounce). May increase CPU usage."
+                },
+                "codesense.debounceMs": {
+                    "type": "number",
+                    "default": 1000,
+                    "description": "Debounce delay in ms for on-type analysis."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "lint": "echo 'No lint configured'"
+    },
+    "devDependencies": {},
+    "dependencies": {}
+}
