@@ -42,17 +42,17 @@ CodeSense AI uses a client-server architecture. The VS Code Extension and Web Da
 
 ```mermaid
 graph TD
-    subgraph Client Layer
+    subgraph ClientLayer ["Client Layer"]
         VSE[VS Code Extension]
         Dash[Interactive Glassmorphic Web Dashboard]
     end
 
-    subgraph Backend API (FastAPI)
+    subgraph BackendAPI ["Backend API (FastAPI)"]
         API[FastAPI Router]
         Cache[In-Memory Deduplication Cache]
     end
 
-    subgraph Analysis Engine
+    subgraph AnalysisEngine ["Analysis Engine"]
         AST[Tree-Sitter AST Parser]
         Risk[Heuristic Risk Engine]
         ML[CodeBERT Intent Engine]
